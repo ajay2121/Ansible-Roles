@@ -1,0 +1,7 @@
+---
+- name: Copy httpd configuration file
+  copy: src=files/apache2.original dest=/etc/apache2/apache2.conf
+- name: Copy index.html file
+  copy: src=files/index.html dest=/var/www/html
+  notify:
+  - restart apache
